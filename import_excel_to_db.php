@@ -24,6 +24,7 @@ if(isset($_POST['import'])){ // Jika user mengklik tombol Import
     $path = 'tmp/' . $namabaru; // Set tempat menyimpan file tersebut dimana
 
     $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+    $reader = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileName);
     $spreadsheet = $reader->load($path); // Load file yang tadi diupload ke folder tmp
     $sheet = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
 
