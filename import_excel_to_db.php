@@ -24,7 +24,7 @@ if(isset($_POST['import'])){ // Jika user mengklik tombol Import
     $path = 'tmp/' . $namabaru; // Set tempat menyimpan file tersebut dimana
 
     $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
-    $reader = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileName);
+    // $reader = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileName);
     $spreadsheet = $reader->load($path); // Load file yang tadi diupload ke folder tmp
     $sheet = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
 
@@ -40,7 +40,7 @@ if(isset($_POST['import'])){ // Jika user mengklik tombol Import
     // mysqli_query($koneksi, $query);
     // Cek jika semua data tidak diisi
     if($nama == "" && $kelas == "" && $alamat == "")
-      continue; // Lewat data pada baris ini 
+      continue; // Lewat data pada baris ini
     // Cek $numrow apakah lebih dari 1
     // Artinya karena baris pertama adalah nama-nama kolom
     // Jadi dilewat saja, tidak usah diimport
